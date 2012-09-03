@@ -6,7 +6,13 @@ module Geocoder::Lookup
     private
     def results(query, reverse = false)
       return [] unless doc = fetch_data(query, reverse)
-      doc
+      unless doc.none?{|r| r["politics"]}
+        doc
+      else
+        raise_error(Geocoder::NoResultsError) ||
+          warn("No results were found")
+        []
+      end
     end
 
     def query_url(query, reverse = false)
