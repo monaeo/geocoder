@@ -6,6 +6,7 @@ module Geocoder::Lookup
     private
     def results(query, reverse = false)
       return [] unless doc = fetch_data(query, reverse)
+      doc
     end
 
     def query_url(query, reverse = false)
@@ -13,9 +14,9 @@ module Geocoder::Lookup
       host = if Geocoder::Configuration.self_hosted 
                Geocoder::Configuration.geocoding_server
              else
-               "http://www.datasciencetoolkit.org/"
+               "http://www.datasciencetoolkit.org"
              end
-      "#{host}/#{lat},#{lng}"
+      "#{host}/coordinates2politics/#{lat},#{lng}"
     end
   end
 end
