@@ -267,6 +267,10 @@ By default Geocoder uses Google's geocoding API to fetch coordinates and street 
     config.cache = Redis.new
     config.cache_prefix = "..."
 
+    # For self-hosted copies of the Data Science Toolkit
+    config.self_hosted = true
+    config.geocoding_server = "http://your.own.host.com"
+
   end
 
 Please see lib/geocoder/configuration.rb for a complete list of configuration options.
@@ -368,6 +372,16 @@ Documentation:: http://github.com/fiorix/freegeoip/blob/master/README.rst
 Terms of Service:: ?
 Limitations:: ?
 
+==== DataScienceToolkit 
+
+API key:: none
+Quota:: none
+Region:: world
+SSL support:: no
+Languages:: English
+Documentation:: http://www.datasciencetoolkit.org/developerdocs#coordinates2politics
+Terms of Service:: ?
+Limitations:: ?
 
 == Caching
 
