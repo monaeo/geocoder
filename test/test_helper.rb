@@ -89,6 +89,19 @@ module Geocoder
       end
     end
 
+    class Dstk < Base
+      private #-----------------------------------------------------------------
+      def fetch_raw_data(query, reverse = false)
+        raise TimeoutError if query == "timeout"
+        raise SocketError if query == "socket_error"
+        file = case query
+          when "no results";  :no_results
+          else                :madison_square_garden
+        end
+        read_fixture "dstk_#{file}.json"
+      end
+    end
+
     class Yandex < Base
       private #-----------------------------------------------------------------
       def fetch_raw_data(query, reverse = false)

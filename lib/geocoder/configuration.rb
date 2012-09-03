@@ -50,7 +50,9 @@ module Geocoder
       :cache_prefix,
       :always_raise,
       :units,
-      :distances
+      :distances,
+      :geocoding_server,
+      :self_hosted
     ]
 
     attr_accessor *OPTIONS
@@ -70,6 +72,8 @@ module Geocoder
       @api_key      = nil         # API key for geocoding service
       @cache        = nil         # cache object (must respond to #[], #[]=, and #keys)
       @cache_prefix = "geocoder:" # prefix (string) to use for all cache keys
+      @self_hosted  = false       # whether the server has a custom URI or not
+      @geocoding_server = nil     # If self hosted, should provide the server hostname
 
       # exceptions that should not be rescued by default
       # (if you want to implement custom error handling);

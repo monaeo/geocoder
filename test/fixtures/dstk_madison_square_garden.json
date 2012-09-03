@@ -1,0 +1,82 @@
+[
+  {
+    "politics": [
+      {
+        "type": "admin2",
+        "friendly_type": "country",
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "type": "admin5",
+        "friendly_type": "city",
+        "code": "36_51000",
+        "name": "New York"
+      },
+      {
+        "type": "admin4",
+        "friendly_type": "state",
+        "code": "us36",
+        "name": "New York"
+      },
+      {
+        "type": "constituency",
+        "friendly_type": "constituency",
+        "code": "36_08",
+        "name": "Eighth district, NY"
+      },
+      {
+        "type": "admin6",
+        "friendly_type": "county",
+        "code": "36_061",
+        "name": "New York"
+      },
+      {
+        "type": "neighborhood",
+        "friendly_type": "neighborhood",
+        "code": "Garment District|New York City-Manhattan|NY",
+        "name": "Garment District"
+      },
+      {
+        "type": "admin2",
+        "friendly_type": "country",
+        "code": "usa",
+        "name": "United States"
+      },
+      {
+        "type": "admin5",
+        "friendly_type": "city",
+        "code": "36_51000",
+        "name": "New York"
+      },
+      {
+        "type": "admin4",
+        "friendly_type": "state",
+        "code": "us36",
+        "name": "New York"
+      },
+      {
+        "type": "constituency",
+        "friendly_type": "constituency",
+        "code": "36_08",
+        "name": "Eighth district, NY"
+      },
+      {
+        "type": "admin6",
+        "friendly_type": "county",
+        "code": "36_061",
+        "name": "New York"
+      },
+      {
+        "type": "neighborhood",
+        "friendly_type": "neighborhood",
+        "code": "Garment District|New York City-Manhattan|NY",
+        "name": "Garment District"
+      }
+    ],
+    "location": {
+      "latitude": "40.750354",
+      "longitude": " -73.993371"
+    }
+  }
+]
