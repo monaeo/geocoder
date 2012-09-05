@@ -52,7 +52,7 @@ module Geocoder
       :units,
       :distances,
       :geocoding_server,
-      :self_hosted
+      :self_hosted,
     ]
 
     attr_accessor *OPTIONS

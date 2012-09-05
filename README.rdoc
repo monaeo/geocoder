@@ -383,6 +383,17 @@ Documentation:: http://www.datasciencetoolkit.org/developerdocs#coordinates2poli
 Terms of Service:: ?
 Limitations:: ?
 
+==== Geonames
+
+API key:: a username
+Quota:: 30000 daily credits, 2000 hourly credits. The reverse geocoding service takes 2 credits.
+Region:: world
+SSL support:: no
+Languages:: English
+Documentation:: http://www.geonames.org/export/web-services.html
+Terms of Service:: http://www.geonames.org/export/
+Limitations:: http://www.geonames.org/export/credits.html
+
 == Caching
 
 It's a good idea, when relying on any external service, to cache retrieved data. When implemented correctly it improves your app's response time and stability. It's easy to cache geocoding results with Geocoder, just configure a cache store:

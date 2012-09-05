@@ -11,7 +11,7 @@ module Geocoder::Result
     def address
       type_re = /admin(?<level>\d+)/
 
-      politics.filter do |e|
+      politics.select do |e|
         type_re =~ e["type"]
       end.sort_by do |e|
         type_re.match(e["type"])["level"]
