@@ -46,6 +46,7 @@ module Geocoder
       :http_proxy,
       :https_proxy,
       :api_key,
+      :api_keys,
       :cache,
       :cache_prefix,
       :always_raise,
@@ -74,6 +75,7 @@ module Geocoder
       @cache_prefix = "geocoder:" # prefix (string) to use for all cache keys
       @self_hosted  = false       # whether the server has a custom URI or not
       @geocoding_server = nil     # If self hosted, should provide the server hostname
+      @api_keys     = {}          # For multiple geocoders
 
       # exceptions that should not be rescued by default
       # (if you want to implement custom error handling);
@@ -83,6 +85,14 @@ module Geocoder
       # calculation options
       @units     = :mi     # :mi or :km
       @distances = :linear # :linear or :spherical
+    end
+
+    def get_api_key(service = nil)
+      if @api_keys && key = @api_keys[service]
+        key
+      else
+        @api_key
+      end
     end
 
     instance_eval(OPTIONS.map do |option|
@@ -101,6 +111,10 @@ module Geocoder
     class << self
       def set_defaults
         instance.set_defaults
+      end
+
+      def get_api_key(service = nil)
+        instance.get_api_key(service)
       end
     end
 

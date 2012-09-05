@@ -20,7 +20,7 @@ module Geocoder::Lookup
 
     def query_url(query, reverse = false)
       lat, lng = query.is_a?(Array) ? query : query.split(/\,s*/)
-      "http://api.geonames.org/findNearbyPostalCodesJSON?maxRows=1&lat=#{lat}&lng=#{lng}&username=#{Geocoder::Configuration.api_key}"
+      "http://api.geonames.org/findNearbyPostalCodesJSON?maxRows=1&lat=#{lat}&lng=#{lng}&username=#{Geocoder::Configuration.get_api_key(:geonames)}"
     end
   end
 end
