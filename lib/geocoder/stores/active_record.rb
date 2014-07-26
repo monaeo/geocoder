@@ -16,13 +16,13 @@ module Geocoder::Store
 
         # scope: geocoded objects
         scope :geocoded, -> {
-          where(conditions: "#{geocoder_options[:latitude]} IS NOT NULL " +
+          where("#{geocoder_options[:latitude]} IS NOT NULL " +
             "AND #{geocoder_options[:longitude]} IS NOT NULL")
         }
 
         # scope: not-geocoded objects
         scope :not_geocoded, -> {
-          where(conditions: "#{geocoder_options[:latitude]} IS NULL " +
+          where("#{geocoder_options[:latitude]} IS NULL " +
             "OR #{geocoder_options[:longitude]} IS NULL")
         }
 
@@ -58,7 +58,7 @@ module Geocoder::Store
           else
             "#{geocoder_options[:longitude]} BETWEEN #{sw_lng} AND #{ne_lng}"
           end
-          where(conditions: spans)
+          where(spans)
         }
       end
     end
