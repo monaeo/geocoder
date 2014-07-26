@@ -15,14 +15,16 @@ module Geocoder::Store
       base.class_eval do
 
         # scope: geocoded objects
-        scope :geocoded, lambda {
-          {:conditions => "#{geocoder_options[:latitude]} IS NOT NULL " +
-            "AND #{geocoder_options[:longitude]} IS NOT NULL"}}
+        scope :geocoded, -> {
+          where(conditions: "#{geocoder_options[:latitude]} IS NOT NULL " +
+            "AND #{geocoder_options[:longitude]} IS NOT NULL")
+        }
 
         # scope: not-geocoded objects
-        scope :not_geocoded, lambda {
-          {:conditions => "#{geocoder_options[:latitude]} IS NULL " +
-            "OR #{geocoder_options[:longitude]} IS NULL"}}
+        scope :not_geocoded, -> {
+          where(conditions: "#{geocoder_options[:latitude]} IS NULL " +
+            "OR #{geocoder_options[:longitude]} IS NULL")
+        }
 
         ##
         # Find all objects within a radius of the given location.
@@ -31,7 +33,7 @@ module Geocoder::Store
         # (see Geocoder::Orm::ActiveRecord::ClassMethods.near_scope_options
         # for details).
         #
-        scope :near, lambda{ |location, *args|
+        scope :near, ->{ |location, *args|
           latitude, longitude = Geocoder::Calculations.extract_coordinates(location)
           if Geocoder::Calculations.coordinates_present?(latitude, longitude)
             near_scope_options(latitude, longitude, *args)
@@ -56,7 +58,7 @@ module Geocoder::Store
           else
             "#{geocoder_options[:longitude]} BETWEEN #{sw_lng} AND #{ne_lng}"
           end
-          { :conditions => spans }
+          where(conditions: spans)
         }
       end
     end
