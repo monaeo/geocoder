@@ -33,7 +33,7 @@ module Geocoder::Store
         # (see Geocoder::Orm::ActiveRecord::ClassMethods.near_scope_options
         # for details).
         #
-        scope :near, ->{ |location, *args|
+        scope :near, ->(location, *args){
           latitude, longitude = Geocoder::Calculations.extract_coordinates(location)
           if Geocoder::Calculations.coordinates_present?(latitude, longitude)
             near_scope_options(latitude, longitude, *args)
